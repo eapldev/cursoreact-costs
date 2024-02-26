@@ -10,6 +10,17 @@
       },
       "cost": 0,
       "services": []
+    },
+    {
+      "id": "39d0",
+      "name": "Projeto 3",
+      "budget": "15000",
+      "category": {
+        "id": "3",
+        "name": "Design"
+      },
+      "cost": 0,
+      "services": []
     }
   ],
   "categories": [
