@@ -1,34 +1,12 @@
 {
   "projects": [
     {
-      "id": "c1c9",
-      "name": "Eder A Leite",
-      "budget": "90000",
-      "category": {
-        "id": "2",
-        "name": "Desenvolvimento"
-      },
-      "cost": 0,
-      "services": []
-    },
-    {
       "id": "39d0",
       "name": "Projeto 3",
       "budget": "15000",
       "category": {
         "id": "3",
         "name": "Design"
-      },
-      "cost": 0,
-      "services": []
-    },
-    {
-      "id": "ad75",
-      "name": "Novo Projeto",
-      "budget": "20000",
-      "category": {
-        "id": "4",
-        "name": "Planejamento"
       },
       "cost": 0,
       "services": []
