@@ -2,11 +2,11 @@
   "projects": [
     {
       "id": "39d0",
-      "name": "Projeto 3",
-      "budget": "15000",
+      "name": "Projeto Atualizado",
+      "budget": "1200",
       "category": {
-        "id": "3",
-        "name": "Design"
+        "id": "4",
+        "name": "Planejamento"
       },
       "cost": 0,
       "services": []
@@ -14,10 +14,10 @@
     {
       "id": "ccaf",
       "name": "Projeto 2",
-      "budget": "90000",
+      "budget": "9000",
       "category": {
-        "id": "1",
-        "name": "Infra"
+        "id": "3",
+        "name": "Design"
       },
       "cost": 0,
       "services": []
