@@ -1,3 +1,5 @@
+import { parse, v4 as uuidv4} from 'uuid'
+
 import styles from './Project.module.css'
 
 import { useParams } from 'react-router-dom'
@@ -7,6 +9,7 @@ import Loading from '../layout/Loading'
 import Container from '../layout/Container'
 import Message from '../layout/Message'
 import ProjectForm from '../projects/ProjectForm'
+import ServiceForm from '../service/ServiceForm'
 
 function Project() {
     const { id } = useParams()
@@ -34,32 +37,81 @@ function Project() {
     }, [id])
 
     function editPost(project) {
-        setMessage('')
-
-
-        //budget validation
-      if(project.budget < project.cost) {
-         setMessage('O orçamento não pode ser menor que o custo do projeto!')
-         setType('error')
-         return false
+        // budget validation
+        if (project.budget < project.cost) {
+          setMessage('O Orçamento não pode ser menor que o custo do projeto!')
+          setType('error')
+          return false
+        }
+    
+        fetch(`http://localhost:5000/projects/${project.id}`, {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(project),
+        })
+          .then((resp) => resp.json())
+          .then((data) => {
+            setProject(data)
+            setShowProjectForm(!showProjectForm)
+            setMessage('Projeto atualizado!')
+            setType('success')
+          })
       }
 
-      fetch(`http://localhost:5000/projects/${project.id}`, {
-        method: 'PATCH',
-        headers: {
-            'Content-Type' : 'application/json',
-        },
-        body: JSON.stringify(project),
-      })
-      .then(resp => resp.json())
-      .then((data) => {  
-        setProject(data)
-        setShowProjectForm(false)
-        setMessage('Projeto atualizado!')
-        setType('sucess')
-      })
-      .catch(err => console.log(err))
+      function createService(project) {
+        // Verificar se o array de serviços está vazio
+        if (project.services.length === 0) {
+            console.error('O array de serviços está vazio.');
+            return false;
+        }
+    
+        // Obter o último serviço no array
+        const lastService = project.services[project.services.length - 1];
+    
+        // Verificar se o último serviço está definido corretamente
+        if (!lastService || typeof lastService.cost === 'undefined') {
+            console.error('O último serviço no objeto project não foi definido corretamente ou não possui uma propriedade "cost".');
+            return false;
+        }
+    
+        // Obter o custo do último serviço
+        const lastServiceCost = lastService.cost;
+    
+        // Calcular o novo custo total
+        const newCost = parseFloat(project.cost) + parseFloat(lastServiceCost);
+    
+        // Verificar se o novo custo total ultrapassa o orçamento do projeto
+        if (newCost > parseFloat(project.budget)) {
+            setMessage('Orçamento ultrapassado, verifique o valor do serviço');
+            setType('error');
+            // Remover o último serviço adicionado
+            project.services.pop();
+            return false;
+        }
+
+        project.cost = newCost
+
+        // atualizar o projeto
+        fetch( `http://localhost:5000/projects/${project.id}`,{
+            method: 'PATCH',
+            headers: {
+                'Content-Type' : 'application/json'
+            },
+            body: JSON.stringify(project)
+        })
+          .then((resp) => resp.json())
+          .then((data) => {
+            // exibir serviços
+            console.log(data)
+          })
+          .catch((err) => console.log(err))
+        
+        // Se tudo estiver correto, retornar verdadeiro
+        return true;
     }
+    
 
     function toggleProjectForm () {
         setShowProjectForm(!showProjectForm)
@@ -107,9 +159,12 @@ function Project() {
                         <button className={styles.btn} onClick={toggleServiceForm}>
                            {!showServiceForm ? 'Adicionar serviço' : 'Fechar'}
                         </button>
-
                         <div className={styles.project_info}>
-                            {showServiceForm && <div>formulário do serviço</div>}
+                            {showServiceForm && <ServiceForm
+                              handleSubmit={createService}
+                              btnText="Adicionar serviço"
+                              projectData={project}
+                            />}
                         </div>
                     </div>
                     <h2>Serviços</h2>

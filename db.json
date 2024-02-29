@@ -1,26 +1,43 @@
 {
   "projects": [
     {
-      "id": "39d0",
-      "name": "Projeto Atualizado",
-      "budget": "1200",
+      "id": "95ae",
+      "name": "Projeto teste",
+      "budget": "1000",
       "category": {
         "id": "4",
         "name": "Planejamento"
       },
-      "cost": 0,
-      "services": []
+      "cost": 100,
+      "services": [
+        {
+          "name": "Teste de serviço",
+          "cost": "100",
+          "description": "Alguma coisa"
+        }
+      ]
     },
     {
-      "id": "ccaf",
-      "name": "Projeto 2",
-      "budget": "9000",
+      "id": "7b1f",
+      "name": "Projeto 2 ",
+      "budget": "200",
       "category": {
         "id": "3",
         "name": "Design"
       },
-      "cost": 0,
-      "services": []
+      "cost": 200,
+      "services": [
+        {
+          "name": "Meu novo serviço",
+          "cost": "100",
+          "description": "Faz isso aki"
+        },
+        {
+          "name": "Meu novo serviço 2 ",
+          "cost": "100",
+          "description": "Faz algumas coisas"
+        }
+      ]
     }
   ],
   "categories": [

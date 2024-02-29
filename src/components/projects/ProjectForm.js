@@ -22,7 +22,6 @@ function ProjectForm({ handleSubmit, btnText, projectData }) {
                 setCategories(data)
             })
             .catch((err) => console.log(err))
-
     }, [])
 
     const submit = (e) => {
