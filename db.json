@@ -1,41 +1,52 @@
 {
   "projects": [
     {
-      "id": "95ae",
-      "name": "Projeto teste",
-      "budget": "1000",
+      "id": "1169",
+      "name": "Novo projeto",
+      "budget": "10000",
       "category": {
-        "id": "4",
-        "name": "Planejamento"
+        "id": "1",
+        "name": "Infra"
       },
-      "cost": 100,
+      "cost": 0,
+      "services": []
+    },
+    {
+      "id": "10a2",
+      "name": "PHP",
+      "budget": "1000000",
+      "category": {
+        "id": "1",
+        "name": "Infra"
+      },
+      "cost": 5100,
       "services": [
         {
-          "name": "Teste de serviço",
+          "name": "Dev Front End",
+          "cost": "5000",
+          "description": "Irá cuidar da parte frontal do site."
+        },
+        {
+          "name": "Novo serviço",
           "cost": "100",
-          "description": "Alguma coisa"
+          "description": "Teste"
         }
       ]
     },
     {
-      "id": "7b1f",
-      "name": "Projeto 2 ",
-      "budget": "200",
+      "id": "4902",
+      "name": "Teste",
+      "budget": "111",
       "category": {
-        "id": "3",
-        "name": "Design"
+        "id": "2",
+        "name": "Desenvolvimento"
       },
-      "cost": 200,
+      "cost": 100,
       "services": [
         {
-          "name": "Meu novo serviço",
+          "name": "teste",
           "cost": "100",
-          "description": "Faz isso aki"
-        },
-        {
-          "name": "Meu novo serviço 2 ",
-          "cost": "100",
-          "description": "Faz algumas coisas"
+          "description": "asdad"
         }
       ]
     }
