@@ -1,21 +1,15 @@
 {
   "projects": [
     {
-      "id": "569a",
-      "name": "Projeto teste",
-      "budget": "1000",
+      "id": "be84",
+      "name": "Inovação do Marketing",
+      "budget": "10000",
       "category": {
-        "id": "3",
-        "name": "Design"
+        "id": "4",
+        "name": "Planejamento"
       },
-      "cost": 100,
-      "services": [
-        {
-          "name": "Meu novo serviço",
-          "cost": "100",
-          "description": "Faz algumas coisas"
-        }
-      ]
+      "cost": 0,
+      "services": []
     }
   ],
   "categories": [
